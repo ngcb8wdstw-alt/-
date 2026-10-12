@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>متجر محمود | الألعاب والإلكترونيات</title>
+
+    <meta name="description"
+          content="متجر محمود للألعاب الإلكترونية وأجهزة الكمبيوتر والإكسسوارات.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #222;
+        }
+
+        header {
+            background: linear-gradient(135deg, #172554, #2563eb);
+            color: white;
+            text-align: center;
+            padding: 40px 15px;
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin: 0 0 12px;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+
+        nav {
+            background: #1e3a8a;
+            text-align: center;
+            padding: 16px 10px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #bfdbfe;
+        }
+
+        .welcome {
+            background: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .welcome h2,
+        .products h2,
+        .contact h2 {
+            color: #172554;
+        }
+
+        .welcome p {
+            line-height: 2;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .products {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .products h2 {
+            font-size: 32px;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 450px;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            margin: 15px auto;
+            outline-color: #2563eb;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .category-button {
+            border: none;
+            background: #dbeafe;
+            color: #1e3a8a;
+            padding: 11px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .category-button:hover,
+        .category-button.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        .product {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 14px #00000010;
+            transition: transform 0.25s, box-shadow 0.25s;
+            border: 1px solid #e5e7eb;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 9px 22px #00000018;
+        }
+
+        .product-icon {
+            font-size: 65px;
+            margin: 5px 0 15px;
+        }
+
+        .product h3 {
+            font-size: 21px;
+            color: #172554;
+            margin: 12px 0;
+        }
+
+        .description {
+            color: #666;
+            line-height: 1.8;
+            min-height: 48px;
+        }
+
+        .price {
+            color: #087f5b;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+
+        .button:hover {
+            background: #1d4ed8;
+        }
+
+        .no-results {
+            display: none;
+            color: #666;
+            padding: 30px;
+        }
+
+        .contact {
+            background: #e5e7eb;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .contact p {
+            line-height: 1.8;
+        }
+
+        footer {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 30px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 7px;
+                font-size: 14px;
+            }
+
+            .products h2 {
+                font-size: 27px;
+            }
+
+            .product-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🎮 متجر محمود</h1>
+        <p>وجهتك للألعاب الإلكترونية وأحدث الأجهزة والإكسسوارات</p>
+    </header>
+
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#products">منتجاتنا</a>
+        <a href="#contact">تواصل معنا</a>
+    </nav>
+
+    <section class="welcome" id="home">
+
+        <h2>مرحبًا بكم في متجر محمود</h2>
+
+        <p>
+            اكتشف عالم الألعاب والإلكترونيات في مكان واحد!
+            <br>
+            نوفر مجموعة متنوعة من أجهزة الألعاب وملحقات الكمبيوتر
+            والسماعات والإكسسوارات الإلكترونية.
+        </p>
+
+        <div class="coming-soon">
+            ⭐ تسوق واستكشف منتجاتنا
+        </div>
+
+    </section>
+
+    <section class="products" id="products">
+
+        <h2>🎮 منتجاتنا</h2>
+
+        <p>اختر القسم الذي يناسبك أو ابحث عن المنتج الذي تريده.</p>
+
+        <input
+            type="search"
+            id="searchInput"
+            class="search-box"
+            placeholder="🔍 ابحث عن منتج..."
+            aria-label="البحث عن المنتجات"
+        >
+
+        <div class="categories">
+
+            <button class="category-button active" data-category="all">
+                جميع المنتجات
+            </button>
+
+            <button class="category-button" data-category="gaming">
+                أجهزة الألعاب
+            </button>
+
+            <button class="category-button" data-category="accessories">
+                الإكسسوارات
+            </button>
+
+            <button class="category-button" data-category="pc">
+                الكمبيوتر
+            </button>
+
+            <button class="category-button" data-category="audio">
+                الصوتيات
+            </button>
+
+        </div>
+
+        <div class="product-list" id="productList">
+
+            <!-- أجهزة الألعاب -->
+
+            <div class="product" data-category="gaming">
+                <div class="product-icon">🎮</div>
+                <h3>PlayStation 5 Slim</h3>
+                <p class="description">
+                    جهاز ألعاب منزلي من سوني بتصميم نحيف.
+                </p>
+                <p class="price">450 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20PlayStation%205%20Slim">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="gaming">
+                <div class="product-icon">🎮</div>
+                <h3>PlayStation 5 Pro</h3>
+                <p class="description">
+                    جهاز ألعاب بمواصفات رسومية محسنة.
+                </p>
+                <p class="price">750 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20PlayStation%205%20Pro">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="gaming">
+                <div class="product-icon">🟢</div>
+                <h3>Xbox Series X</h3>
+                <p class="description">
+                    جهاز ألعاب منزلي من مايكروسوفت.
+                </p>
+                <p class="price">500 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20Xbox%20Series%20X">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="gaming">
+                <div class="product-icon">🎮</div>
+                <h3>Nintendo Switch OLED</h3>
+                <p class="description">
+                    جهاز ألعاب محمول بشاشة OLED.
+                </p>
+                <p class="price">300 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20Nintendo%20Switch%20OLED">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="gaming">
+                <div class="product-icon">🕹️</div>
+                <h3>Steam Deck</h3>
+                <p class="description">
+                    جهاز ألعاب محمول لتشغيل ألعاب الكمبيوتر.
+                </p>
+                <p class="price">450 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20Steam%20Deck">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="gaming">
+                <div class="product-icon">🎲</div>
+                <h3>ألعاب فيديو متنوعة</h3>
+                <p class="description">
+                    ألعاب مغامرات ورياضة وسباقات وأكشن.
+                </p>
+                <p class="price">35 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20ألعاب%20الفيديو">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <!-- الإكسسوارات -->
+
+            <div class="product" data-category="accessories">
+                <div class="product-icon">🎮</div>
+                <h3>يد تحكم DualSense</h3>
+                <p class="description">
+                    يد تحكم لاسلكية لأجهزة PlayStation 5.
+                </p>
+                <p class="price">70 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20يد%20تحكم%20DualSense">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="accessories">
+                <div class="product-icon">🕹️</div>
+                <h3>يد تحكم Xbox</h3>
+                <p class="description">
+                    وحدة تحكم لاسلكية لأجهزة Xbox والكمبيوتر.
+                </p>
+                <p class="price">60 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20يد%20تحكم%20Xbox">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="accessories">
+                <div class="product-icon">⌨️</div>
+                <h3>لوحة مفاتيح ميكانيكية</h3>
+                <p class="description">
+                    لوحة مفاتيح مخصصة للألعاب والكتابة.
+                </p>
+                <p class="price">80 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20لوحة%20المفاتيح">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="accessories">
+                <div class="product-icon">🖱️</div>
+                <h3>فأرة ألعاب RGB</h3>
+                <p class="description">
+                    فأرة ألعاب بإضاءة ملونة وأزرار قابلة للتخصيص.
+                </p>
+                <p class="price">40 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20فأرة%20الألعاب">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="accessories">
+                <div class="product-icon">🪑</div>
+                <h3>كرسي ألعاب</h3>
+                <p class="description">
+                    كرسي مريح لجلسات اللعب الطويلة.
+                </p>
+                <p class="price">180 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20كرسي%20الألعاب">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="accessories">
+                <div class="product-icon">🎥</div>
+                <h3>كاميرا ويب HD</h3>
+                <p class="description">
+                    كاميرا للبث المباشر والاجتماعات والألعاب.
+                </p>
+                <p class="price">55 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20كاميرا%20الويب">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <!-- الكمبيوتر -->
+
+            <div class="product" data-category="pc">
+                <div class="product-icon">💻</div>
+                <h3>كمبيوتر ألعاب متوسط</h3>
+                <p class="description">
+                    جهاز كمبيوتر مكتبي مناسب للألعاب اليومية.
+                </p>
+                <p class="price">900 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20كمبيوتر%20الألعاب">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="pc">
+                <div class="product-icon">💻</div>
+                <h3>لابتوب ألعاب</h3>
+                <p class="description">
+                    كمبيوتر محمول للألعاب والعمل والدراسة.
+                </p>
+                <p class="price">1200 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20لابتوب%20الألعاب">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="pc">
+                <div class="product-icon">🖥️</div>
+                <h3>شاشة ألعاب 27 بوصة</h3>
+                <p class="description">
+                    شاشة ألعاب بمعدل تحديث مرتفع.
+                </p>
+                <p class="price">250 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20شاشة%20الألعاب">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="pc">
+                <div class="product-icon">💾</div>
+                <h3>قرص SSD بسعة 1 تيرابايت</h3>
+                <p class="description">
+                    وحدة تخزين سريعة للكمبيوتر والألعاب.
+                </p>
+                <p class="price">90 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20قرص%20SSD">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="pc">
+                <div class="product-icon">🎮</div>
+                <h3>بطاقة رسومات للألعاب</h3>
+                <p class="description">
+                    بطاقة رسومات لتشغيل الألعاب الحديثة.
+                </p>
+                <p class="price">400 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20بطاقة%20الرسومات">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <!-- الصوتيات -->
+
+            <div class="product" data-category="audio">
+                <div class="product-icon">🎧</div>
+                <h3>سماعة ألعاب احترافية</h3>
+                <p class="description">
+                    سماعة بصوت واضح وميكروفون للتواصل أثناء اللعب.
+                </p>
+                <p class="price">75 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20سماعة%20الألعاب">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="audio">
+                <div class="product-icon">🎵</div>
+                <h3>سماعات بلوتوث</h3>
+                <p class="description">
+                    سماعات لاسلكية للاستماع إلى الموسيقى.
+                </p>
+                <p class="price">50 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20سماعات%20بلوتوث">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="audio">
+                <div class="product-icon">🔊</div>
+                <h3>مكبرات صوت للكمبيوتر</h3>
+                <p class="description">
+                    مكبرات صوت للاستمتاع بالألعاب والموسيقى.
+                </p>
+                <p class="price">45 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20مكبرات%20الصوت">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product" data-category="audio">
+                <div class="product-icon">🎙️</div>
+                <h3>ميكروفون للبث المباشر</h3>
+                <p class="description">
+                    ميكروفون لتسجيل الصوت وصناعة المحتوى.
+                </p>
+                <p class="price">65 يورو</p>
+                <a class="button" href="mailto:yourname@gmail.com?subject=استفسار%20عن%20الميكروفون">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+        </div>
+
+        <p class="no-results" id="noResults">
+            لم يتم العثور على منتجات مطابقة لبحثك.
+        </p>
+
+        <p>
+            <small>
+                ملاحظة: جميع الأسعار المعروضة افتراضية وقابلة للتعديل.
+            </small>
+        </p>
+
+    </section>
+
+    <section class="contact" id="contact">
+
+        <h2>📩 تواصل معنا</h2>
+
+        <p>
+            هل لديك سؤال عن أحد المنتجات؟
+            <br>
+            يسعدنا استقبال استفساراتك.
+        </p>
+
+        <a class="button"
+           href="mailto:yourname@gmail.com?subject=استفسار%20عن%20متجر%20محمود">
+            راسلنا عبر الإيميل
+        </a>
+
+    </section>
+
+    <footer>
+        <p>© 2026 متجر محمود - جميع الحقوق محفوظة</p>
+        <p>الألعاب الإلكترونية والإكسسوارات في مكان واحد 🎮</p>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const products = document.querySelectorAll(".product");
+        const categoryButtons = document.querySelectorAll(".category-button");
+        const noResults = document.getElementById("noResults");
+
+        let selectedCategory = "all";
+
+        function filterProducts() {
+            const searchText = searchInput.value.trim().toLowerCase();
+            let visibleCount = 0;
+
+            products.forEach(function(product) {
+                const matchesSearch =
+                    product.textContent.toLowerCase().includes(searchText);
+
+                const matchesCategory =
+                    selectedCategory === "all" ||
+                    product.dataset.category === selectedCategory;
+
+                if (matchesSearch && matchesCategory) {
+                    product.style.display = "";
+                    visibleCount++;
+                } else {
+                    product.style.display = "none";
+                }
+            });
+
+            noResults.style.display =
+                visibleCount === 0 ? "block" : "none";
+        }
+
+        searchInput.addEventListener("input", filterProducts);
+
+        categoryButtons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                selectedCategory = button.dataset.category;
+
+                categoryButtons.forEach(function(item) {
+                    item.classList.remove("active");
+                });
+
+                button.classList.add("active");
+
+                filterProducts();
+            });
+        });
+    </script>
+
+</body>
+</html>
