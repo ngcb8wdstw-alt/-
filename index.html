@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الصلاحي</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #222;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0 0 10px;
+        }
+
+        nav {
+            background: #1e3a8a;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .welcome {
+            background: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .welcome h2 {
+            color: #172554;
+        }
+
+        .welcome p {
+            line-height: 1.9;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .products {
+            text-align: center;
+            padding: 35px 15px;
+        }
+
+        .products h2 {
+            color: #172554;
+            font-size: 28px;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .product {
+            background: white;
+            width: 280px;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 3px 12px #ddd;
+        }
+
+        .phone {
+            font-size: 75px;
+            margin: 10px 0;
+        }
+
+        .product h3 {
+            font-size: 22px;
+            color: #172554;
+        }
+
+        .description {
+            color: #666;
+        }
+
+        .price {
+            color: #087f5b;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background: #1d4ed8;
+        }
+
+        .contact {
+            background: #e5e7eb;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .contact h2 {
+            color: #172554;
+        }
+
+        footer {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 30px;
+            }
+
+            .product {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>متجر الصلاحي</h1>
+        <p>أهلًا بكم في متجر الصلاحي</p>
+    </header>
+
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#products">منتجاتنا</a>
+        <a href="#contact">تواصل معنا</a>
+    </nav>
+
+    <section class="welcome" id="home">
+        <h2>مرحبًا بكم في متجر الصلاحي</h2>
+
+        <p>
+            نعمل على تجهيز متجرنا الإلكتروني لنقدم لكم تجربة تسوق مميزة.
+            <br>
+            ترقبوا المزيد من المنتجات والعروض قريبًا!
+        </p>
+
+        <div class="coming-soon">
+            قريبًا سوف ننشئ موقعنا الإلكتروني
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <h2>منتجاتنا</h2>
+        <p>اكتشف منتجات متجر الصلاحي</p>
+
+        <div class="product-list">
+
+            <div class="product">
+                <div class="phone">📱</div>
+                <h3>iPhone 15</h3>
+                <p class="description">آيفون 15 العادي</p>
+                <p class="price">500 يورو</p>
+
+                <a class="button"
+                   href="mailto:yourname@gmail.com?subject=استفسار%20عن%20iPhone%2015">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+            <div class="product">
+                <div class="phone">📱</div>
+                <h3>iPhone 15 Pro</h3>
+                <p class="description">آيفون 15 برو</p>
+                <p class="price">700 يورو</p>
+
+                <a class="button"
+                   href="mailto:yourname@gmail.com?subject=استفسار%20عن%20iPhone%2015%20Pro">
+                    استفسر عن المنتج
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>تواصل معنا</h2>
+        <p>هل لديك سؤال عن منتجاتنا؟ يسعدنا تواصلك معنا.</p>
+
+        <a class="button"
+           href="mailto:yourname@gmail.com?subject=استفسار%20عن%20متجر%20الصلاحي">
+            راسلنا عبر الإيميل
+        </a>
+    </section>
+
+    <footer>
+        <p>© 2026 متجر الصلاحي - جميع الحقوق محفوظة</p>
+    </footer>
+
+</body>
+</html>
